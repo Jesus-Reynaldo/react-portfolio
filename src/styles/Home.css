@@ -1,0 +1,18 @@
+.img_home{
+  box-shadow: 0 0 15px 8px #09e85e;
+  animation-name: pulso;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulso {
+  0%      {opacity: 0%;}
+  12.5%   {opacity: 25%;}
+  25%     {opacity: 50%;}
+  37.5%   {opacity: 75%;}
+  50%     {opacity: 100%;}
+  62.5%   {opacity: 75%;}
+  75%     {opacity: 50%;}
+  87.5%   {opacity: 25%;}
+  100%    {opacity: 0%;}
+}

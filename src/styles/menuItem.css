@@ -1,0 +1,25 @@
+.menu_item{
+  position: relative;
+}
+.menu_item:before{
+  position: absolute;
+  bottom: 0;
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #09E85E;
+  transition: all 0.4s;
+}
+.menu_item:hover:before{
+  width: 100%;
+}
+.move_item:before{
+  left: 50%;
+}
+.move_item:before{
+  left: 50%;
+}
+.menu_item:hover:before{
+  left: 0;
+}
