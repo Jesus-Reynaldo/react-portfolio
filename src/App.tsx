@@ -1,3 +1,4 @@
+import { Home } from './components/Home'
 import { Header } from './components/Header'
 import { initialData } from './seed/seed'
 const {menuItems} = initialData
@@ -7,6 +8,7 @@ function App() {
     <>
       <main>
         <Header menuItems={menuItems}/>
+        <Home />
       </main>
     </>
   )

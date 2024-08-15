@@ -11,16 +11,18 @@ export const Header = ({ menuItems }: Props) => {
   const handleNavClick = () => setHidden((valor) => !valor);
   return (
     <header className="backdrop-blur-md w-full fixed flex flex-row justify-between items-center p-4">
-      <nav className="flex flex-row gap-2">
-        <a href="https://github.com/Jesus-Reynaldo" target="_blank">
+      <nav className="flex flex-row gap-2 w-1/3">
+        <a href="https://github.com/Jesus-Reynaldo" target="_blank" >
           <GitHubIcon className="text-white"/>
         </a>
         <a href="https://www.linkedin.com/in/jesusreynaldo/" target="_blank">
           <LinkedInIcon className="text-white"/>
         </a>
       </nav>
-      <a href="#" className="text-white">JESUS REYNALDO</a>
-      <nav className="flex flex-row">
+      <div className="flex w-2/3 justify-center">
+        <a href="#" className="text-white transition menu_item">JESUS REYNALDO</a>
+      </div>
+      <nav className="flex flex-row w-1/3 justify-end">
         <button
           onClick={handleNavClick}
           className={`${hidden ? "hidden" : ""} lg:hidden`}
