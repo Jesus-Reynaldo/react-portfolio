@@ -1,21 +1,61 @@
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import clsx from "clsx";
+import emailjs from '@emailjs/browser'
 import "../styles/form.css";
 import { Alert } from "./Alert";
+import { useState } from "react";
 
+interface FormValues{
+  name: string,
+  email: string,
+  message: string,
+}
 export const Form = () => {
+  const VITE_SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const VITE_TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+  const VITE_PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+  
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-    watch,
-  } = useForm();
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  } = useForm({
+    defaultValues:{
+      name: '',
+      email: '',
+      message: '',
+    }
   });
+  const [isSuccess, setIsSuccess] = useState<boolean>(false)
+  const onSubmit:SubmitHandler<FormValues> = (data) => {
+    const templateParams={
+      me_name: "Jesus",
+      user_name: data.name,
+      message: data.message,
+      user_email: data.email,
+    }
+    console.log(templateParams)
+    emailjs.send(VITE_SERVICE_ID,VITE_TEMPLATE_ID,templateParams,{publicKey: VITE_PUBLIC_KEY})
+    .then(
+      () => {
+        console.log('SUCCESS!');
+        setIsSuccess(()=>true)
+        reset()
+        const timer = setTimeout(() => {
+          setIsSuccess(()=>false);
+        }, 2500); 
+        clearTimeout(timer);
+      },
+      (error) => {
+        console.log('FAILED...', error.text);
+      },
+    );
+  }
+
   return (
     <>
-      <form className="w-full sm:w-2/3 lg:w-1/3 p-4" onSubmit={onSubmit}>
+      <form id="myform"className="w-full sm:w-2/3 lg:w-1/3 p-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
           <label
             htmlFor="name"
@@ -89,14 +129,9 @@ export const Form = () => {
             className="block p-2.5 w-full text-sm text-[#031926] bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Leave a comment..."
             {...register("message", {
-              required: true,
+              required: false,
             })}
           ></textarea>
-          {errors.name && (
-            <p className="mt-2 text-sm text-red-600 dark:text-red-500">
-              <span className="font-medium">Oops!</span> Comment is required!
-            </p>
-          )}
         </div>
         <div className="flex justify-center items-center ">
           <button
@@ -106,12 +141,9 @@ export const Form = () => {
             Submit
           </button>
         </div>
-        <pre>
-          {JSON.stringify(watch(),null,2)}
-        </pre>
       </form>
       {
-      errors.name&&<Alert />
+        isSuccess&&<Alert />
       }
     </>
   );
