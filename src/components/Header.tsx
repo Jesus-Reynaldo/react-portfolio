@@ -10,17 +10,18 @@ export const Header = ({ menuItems }: Props) => {
   const [hidden, setHidden] = useState<boolean>(false);
   const handleNavClick = () => setHidden((valor) => !valor);
   return (
-    <header className="backdrop-blur-md w-full fixed flex flex-row justify-between items-center p-4">
+    <header className="backdrop-blur-md w-full fixed flex flex-row justify-between items-center px-4 py-4 sm:py-2 lg:py-0">
       <nav className="flex flex-row gap-2 w-1/3">
         <a href="https://github.com/Jesus-Reynaldo" target="_blank" >
-          <GitHubIcon className="text-white"/>
+          <GitHubIcon className="text-white hover:text-yellow-500"/>
         </a>
         <a href="https://www.linkedin.com/in/jesusreynaldo/" target="_blank">
-          <LinkedInIcon className="text-white"/>
+          <LinkedInIcon className="text-white  hover:text-yellow-500"/>
         </a>
       </nav>
       <div className="flex w-2/3 justify-center">
-        <a href="#" className="text-white transition menu_item">JESUS REYNALDO</a>
+        <a href="#" className="text-white transition menu_item move_item inline-block py-2 mx-2 hover:text-yellow-500 dark:hover:text-yellow-400
+        ">JESUS REYNALDO</a>
       </div>
       <nav className="flex flex-row w-1/3 justify-end">
         <button

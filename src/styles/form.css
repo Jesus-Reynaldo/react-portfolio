@@ -1,0 +1,23 @@
+.focus_style{
+  box-sizing: border-box;
+  border: 3px solid  rgba(209, 213, 219,1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.focus_style_error:focus {
+  border: 3px solid rgba(59, 130, 246);
+}
+
+.focus_style_error{
+  box-sizing: border-box;
+  border: 3px solid  rgb(255, 56, 56);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.focus_style_error:focus {
+  border: 3px solid rgb(167, 5, 5);
+}

@@ -18,7 +18,7 @@
   left: 50%;
 }
 .move_item:before{
-  left: 50%;
+  left: 50%;              
 }
 .menu_item:hover:before{
   left: 0;

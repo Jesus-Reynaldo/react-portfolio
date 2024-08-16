@@ -1,7 +1,9 @@
 import { Home } from './components/Home'
 import { Header } from './components/Header'
 import { initialData } from './seed/seed'
-const {menuItems} = initialData
+import { Projects } from './components/Projects'
+import { ContactMe } from './components/ContactMe';
+const {menuItems, projects} = initialData
 function App() {
 
   return (
@@ -9,6 +11,8 @@ function App() {
       <main>
         <Header menuItems={menuItems}/>
         <Home />
+        <Projects projects={projects} />
+        <ContactMe />
       </main>
     </>
   )
