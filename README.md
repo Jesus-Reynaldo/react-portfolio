@@ -1,6 +1,10 @@
 <p align="center">
     <h1 align="center">REACT-PORTFOLIO</h1>
 </p>
+<p align="center">
+    <a href="https://github.com/Jesus-Reynaldo/react-portfolio" target="_blank">Repository</a> |
+    <a href="https://portfolio-eosin-theta-95.vercel.app/" target="_blank">Live Demo</a>
+</p>
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/Jesus-Reynaldo/react-portfolio?style=flat&color=0080ff" alt="license">
